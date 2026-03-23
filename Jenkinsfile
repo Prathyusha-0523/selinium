@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout from GitHub') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/laxmi916/node-k8s-app.git'
+                    url: 'https://github.com/Prathyusha-0523/selinium.git'
             }
         }
 
@@ -20,14 +20,14 @@ pipeline {
             steps {
                 sh '''
                 docker build -t my-k8s-app:${BUILD_NUMBER} .
-                docker tag my-k8s-app:${BUILD_NUMBER} laxmi916/my-k8s-app:latest
+                docker tag my-k8s-app:${BUILD_NUMBER} prathyushaesh/my-k8s-app:latest
                 '''
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push laxmi916/my-k8s-app:latest'
+                sh 'docker push prathyushaesh/my-k8s-app:latest'
             }
         }
 
