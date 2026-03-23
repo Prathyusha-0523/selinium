@@ -57,8 +57,8 @@ pipeline {
 
                 # Apply manifests
                 minikube kubectl -- apply -f k8s/deployment.yaml
+                minikube kubectl -- apply -f k8s/service.yaml
                 minikube service my-k8s-app-service --url
-                minikube service my-k8s-app-service
                 '''
             }
         }
